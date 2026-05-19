@@ -1,0 +1,64 @@
+version: "3.9"
+
+services:
+  python-worker:
+    build: ./backend/python-workers
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/python-workers:/app
+    depends_on:
+      - postgres
+      - redis
+      - localstack
+
+  rust-api:
+    build: ./backend/rust-api/rust_api
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./backend/rust-api/rust_api:/app
+    depends_on:
+      - postgres
+      - redis
+      - localstack
+
+  dashboard:
+    build: ./dashboard/dash_frontend
+    ports:
+      - "8554:8554"
+    volumes:
+      - ./dashboard/dash_frontend:/app
+    depends_on:
+      - postgres
+
+  react-frontend:
+    build: ./frontend/react_frontend_app
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./frontend/react_frontend_app:/app
+    depends_on:
+      - rust-api
+
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: admin
+      POSTGRES_DB: appdb
+    ports:
+      - "5432:5432"
+
+  redis:
+    image: redis:7
+    ports:
+      - "6379:6379"
+
+  localstack:
+    image: localstack/localstack
+    ports:
+      - "4566:4566"
+    environment:
+      - SERVICES=s3,sqs,lambda
+      - DEBUG=1
