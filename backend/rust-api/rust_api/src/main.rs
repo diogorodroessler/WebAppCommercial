@@ -1,5 +1,5 @@
 use axum::{
-    Json, Router,
+    Json,
     routing::{get, post},
 };
 use serde::{Deserialize, Serialize};
@@ -30,7 +30,7 @@ async fn post_data(Json(payload): Json<InputData>) -> Json<Message> {
 async fn main() {
     let app = axum::Router::new()
         .route("/", get(hello))
-        .route("/post_data", post(post_data));
+        .route("/post-api", post(post_data));
 
     let listener = tokio::net::TcpListener::bind("0.0.0.0:3000").await.unwrap();
 

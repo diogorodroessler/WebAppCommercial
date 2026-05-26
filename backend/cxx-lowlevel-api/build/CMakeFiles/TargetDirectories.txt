@@ -1,0 +1,3 @@
+/home/diogo/codes/projects/infra/WebAppCommercial/backend/cxx-lowlevel-api/build/CMakeFiles/cxx-lowlevel-api.dir
+/home/diogo/codes/projects/infra/WebAppCommercial/backend/cxx-lowlevel-api/build/CMakeFiles/edit_cache.dir
+/home/diogo/codes/projects/infra/WebAppCommercial/backend/cxx-lowlevel-api/build/CMakeFiles/rebuild_cache.dir

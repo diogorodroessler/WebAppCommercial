@@ -1,0 +1,10 @@
+{
+  "languages": {
+    "C++": {
+      "inlay_hints": {
+        "show_background": true
+      }
+    }
+  },
+  "code_lens": "on"
+}

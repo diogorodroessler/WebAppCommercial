@@ -1,0 +1,1 @@
+/usr/bin/c++ -Wl,--dependency-file=CMakeFiles/cxx-lowlevel-api.dir/link.d "CMakeFiles/cxx-lowlevel-api.dir/main.cpp.o" -o cxx-lowlevel-api  /usr/lib/libdrogon.so.1.9.13 /usr/lib/libtrantor.so.1.5.28 /usr/lib/libjsoncpp.so
